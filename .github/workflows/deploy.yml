@@ -3,7 +3,7 @@ name: Deploy LogBook-Backend
 on:
   push:
     branches:
-      - staging # Changing the branch here would also work
+      - main # Changing the branch here would also work
 
 jobs:
   build:
