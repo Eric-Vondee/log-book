@@ -6,7 +6,7 @@ const DB = require('./db');
 
 const app = express();
 
-const port = process.env.port || 4200
+const PORT = process.env.PORT || 4200
 
 app.use(logger('dev'));
 app.use(cors());
@@ -39,4 +39,4 @@ app.use((err, req, res, next) => {
 	});
 });
 
-app.listen(port, ()=>   console.log(`Logbook server started on port http://0.0.0.0:${port}.`));
+app.listen(PORT, ()=>   console.log(`Logbook server started on port http://0.0.0.0:${PORT}.`));
