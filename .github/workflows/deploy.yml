@@ -1,0 +1,17 @@
+name: Deploy LogBook-Backend
+
+on:
+  push:
+    branches:
+      - staging # Changing the branch here would also work
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+            node-version: '14'
+      - name: Install depedencies
+        run: npm ci
