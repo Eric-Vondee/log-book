@@ -6,7 +6,7 @@ module.exports = async() =>{
         //connect to mongodb
         await mongoose.connect(
             process.env.NODE_ENV === 'production'?
-            config.MONGODB_URI: 'mongodb+srv://logbook:U5a7WmfqUvd0jFFM@logbook-app.6elbk.mongodb.net/logbook-app?authSource=admin&replicaSet=atlas-l37rms-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true',
+            config.MONGO_URI: 'mongodb+srv://logbook:U5a7WmfqUvd0jFFM@logbook-app.6elbk.mongodb.net/logbook-app?authSource=admin&replicaSet=atlas-l37rms-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true',
             {
                 useNewUrlParser: true,
 				autoIndex: process.env.NODE_ENV === 'production' ? false : true,
