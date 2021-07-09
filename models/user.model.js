@@ -8,15 +8,10 @@ const LogBookSchema = new Schema ({
     department: {type: String},
     comments: {type: String},
     days: [{ 
-        monday: {type: String},
-        tuesday: {type: String},
-        wednesday: {type: String},
-        thursday: {type: String},
-        friday: {type: String},
-        saturday: {type: String},
-        sunday: {type: String}
+        day: {type: String},
+        contents:{type: String}
     }],
-    isApproved: {type: Boolean, default: false}
+    isApproved: {type: String, enum:['pending', 'approved'], default: 'pending'}
 })
 const userSchema = new Schema({
     fullname: {type: String},

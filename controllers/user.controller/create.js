@@ -10,9 +10,9 @@ module.exports = async(req, res) => {
 
         const supervisor = await Supervisor.findOne({_id: req.decoded.id})
         if(!supervisor){
-            return res.status(400).send({
+            return res.status(404).send({
                 status: 'ERROR',
-                statusCode: 400,
+                statusCode: 404,
                 message: 'supervisor not found'
             })
         }
