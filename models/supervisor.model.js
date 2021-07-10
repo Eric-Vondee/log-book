@@ -11,7 +11,7 @@ const supervisorSchema = new Schema({
     companyName: {type: String, maxlength: 100},
     position: {type: String, maxlength: 100},
     departmnet: {type: String},
-    isSupervisor: {type: Boolean},
+    isSupervisor: {type: Boolean, default:true},
     isVerified: {type: Boolean},
     students: [{type: mongoose.Schema.Types.ObjectId, ref:'user'}]
 }, {

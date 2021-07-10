@@ -31,7 +31,11 @@ module.exports = async(req, res) => {
                 status: "OK",
                 statusCode: 200,
                 message: "Log in Successful",
-                payload: {token, email, id: supervisor.id, fullname: supervisor.fullname, isVerified: supervisor.isVerified, gender:supervisor.gender}
+                payload: {token, email, id: supervisor.id,
+                     fullname: supervisor.fullname, isVerified: supervisor.isVerified, 
+                     gender:supervisor.gender,
+                     isSupervisor: supervisor.isSupervisor
+                    }
             })
         }
     }
