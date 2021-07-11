@@ -3,7 +3,7 @@ const User = require('../../models/user.model');
 module.exports = async(req,res) => {
     try{
         const{id} = req.query
-        const supervisor = await User.findOne({supervisorID: id})
+        const supervisor = await User.find({supervisorID: id})
 
         if(!supervisor){
             return res.status(404).send({
