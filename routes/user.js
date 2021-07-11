@@ -16,7 +16,9 @@ const {
 const {SupervisorAuth, ImageUploader, UserAuth} = require('../middleware/index')
 
 router.get('/profile', UserAuth, GetUserProfile);
-router.get('/', SupervisorAuth, GetUsers);
+router.get('/',  GetUsers);
+
+
 router.post('/', SupervisorAuth, CreateUser);
 
 router.post('/login', Login);
