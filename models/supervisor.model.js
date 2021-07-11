@@ -10,7 +10,7 @@ const supervisorSchema = new Schema({
     profileImage: {type: String},
     companyName: {type: String, maxlength: 100},
     position: {type: String, maxlength: 100},
-    departmnet: {type: String},
+    department: {type: String},
     isSupervisor: {type: Boolean, default:true},
     isVerified: {type: Boolean},
     students: [{type: mongoose.Schema.Types.ObjectId, ref:'user'}]
