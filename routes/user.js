@@ -8,11 +8,14 @@ const {
     UpdateLogbook,
     UpdateDailyActivities,
     GetUsers,
-    UpdateApprovalStatus
+    UpdateApprovalStatus,
+    UploadScafImage,
+    GetUserProfile
 } = require('../controllers/user.controller/index');
 
-const {SupervisorAuth, UserAuth} = require('../middleware/index')
+const {SupervisorAuth, ImageUploader, UserAuth} = require('../middleware/index')
 
+router.get('/profile', UserAuth, GetUserProfile);
 router.get('/', SupervisorAuth, GetUsers);
 router.post('/', SupervisorAuth, CreateUser);
 
@@ -21,5 +24,6 @@ router.put('/update/profile', UserAuth, UpdateProfile);
 router.put('/update/logbook', UserAuth, UpdateLogbook);
 router.put('/update/record', UserAuth, UpdateDailyActivities);
 router.put('/update/status', SupervisorAuth, UpdateApprovalStatus);
+router.put('/upload/:id/image', UserAuth, ImageUploader('/scaf-form/:id'),  UploadScafImage)
 
 module.exports = router

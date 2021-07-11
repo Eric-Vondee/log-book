@@ -1,9 +1,12 @@
-const User = require('../../models/user.model');
+const Supervisor = require('../../models/supervisor.model');
 
 module.exports = async(req,res) => {
     try{
-        const{id} = req.query
-        const supervisor = await User.findOne({supervisorID: id})
+
+        const supervisor = await Supervisor.findOne({_id: req.decoded.id}, {
+            password: 0
+        })
+                        //.populate('students')
 
         if(!supervisor){
             return res.status(404).send({
@@ -16,7 +19,7 @@ module.exports = async(req,res) => {
             return res.status(200).send({
                 status: 'OK',
                 statusCode: 200,
-                message: 'interns fetched successfully',
+                message: 'supervisor profile fetched successfully',
                 payload: supervisor
             })
         }

@@ -26,6 +26,7 @@ const userSchema = new Schema({
     companyName: {type: String, maxlength: 100},
     department: {type: String},
     isVerified: {type: Boolean},
+    scafImage: {type:String},
     logbook: [LogBookSchema]
 }, {
     timestamps: true
