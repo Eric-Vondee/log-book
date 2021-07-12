@@ -7,7 +7,7 @@ const GetUsers = require('./getAll');
 const UpdateApprovalStatus = require('./updateApprovalStatus');
 const UploadScafImage = require('./uploadScafForm');
 const GetUserProfile = require('./getProfile');
-
+const Logout = require('./logout');
 const UserController = Object.freeze({
     CreateUser,
     Login,
@@ -17,7 +17,8 @@ const UserController = Object.freeze({
     GetUsers,
     UpdateApprovalStatus,
     UploadScafImage,
-    GetUserProfile
+    GetUserProfile,
+    Logout
 })
 
 module.exports = UserController

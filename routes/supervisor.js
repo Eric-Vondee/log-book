@@ -5,11 +5,13 @@ const {
     CreateSupervisor,
     Login,
     UpdateProfile,
-    GetSuperviorProfile
+    GetSuperviorProfile,
+    Logout
 } = require('../controllers/supervisor.controller/index');
 
 const {SupervisorAuth} = require('../middleware/')
 
+router.post('/logout', Logout);
 router.get('/profile', SupervisorAuth, GetSuperviorProfile);
 router.post('/', CreateSupervisor);
 router.post('/login', Login);

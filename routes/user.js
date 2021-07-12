@@ -10,7 +10,8 @@ const {
     GetUsers,
     UpdateApprovalStatus,
     UploadScafImage,
-    GetUserProfile
+    GetUserProfile,
+    Logout
 } = require('../controllers/user.controller/index');
 
 const {SupervisorAuth, ImageUploader, UserAuth} = require('../middleware/index')
@@ -20,7 +21,7 @@ router.get('/',  GetUsers);
 
 
 router.post('/', SupervisorAuth, CreateUser);
-
+router.post('/logout',  Logout);
 router.post('/login', Login);
 router.put('/update/profile', UserAuth, UpdateProfile);
 router.put('/update/logbook', UserAuth, UpdateLogbook);
