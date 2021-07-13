@@ -3,13 +3,14 @@ const User = require('../../models/user.model')
 
 module.exports = async(req, res) => {
     try{
+        const {id} = req.params 
         const {fullname, phonenumber, matricNumber, companyName, department} = req.body
 
-        const user = await User.findOne({_id: req.decoded.id})
+        const user = await User.findOne({_id: id||req.decoded.id})
         if(!user){
-            return res.status(400).send({
+            return res.status(404).send({
                 status: 'ERROR',
-                statusCode: 400,
+                statusCode: 404,
                 message: 'user not found'
             })
         }

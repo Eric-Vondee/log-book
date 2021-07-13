@@ -2,22 +2,22 @@ const User = require('../../models/user.model');
 
 module.exports = async(req,res) => {
     try{
-        const{id} = req.query
-        const user = await User.find({supervisorID: id})
+        const{id} = req.params
+        const user = await User.findOne({_id: id })
 
         if(!user){
             return res.status(404).send({
                 status: 'ERROR',
                 statusCode: 404,
-                message: 'supervisor not found'
+                message: 'user not found'
             })
         }
         else{
+            await user.remove()
             return res.status(200).send({
                 status: 'OK',
                 statusCode: 200,
-                message: 'interns fetched successfully',
-                payload: user
+                message: 'intern deleted successfully'
             })
         }
     }

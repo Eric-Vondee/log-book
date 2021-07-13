@@ -8,6 +8,8 @@ const UpdateApprovalStatus = require('./updateApprovalStatus');
 const UploadScafImage = require('./uploadScafForm');
 const GetUserProfile = require('./getProfile');
 const Logout = require('./logout');
+const DeleteUser = require('./delete');
+
 const UserController = Object.freeze({
     CreateUser,
     Login,
@@ -18,7 +20,8 @@ const UserController = Object.freeze({
     UpdateApprovalStatus,
     UploadScafImage,
     GetUserProfile,
-    Logout
+    Logout,
+    DeleteUser
 })
 
 module.exports = UserController

@@ -11,7 +11,8 @@ const {
     UpdateApprovalStatus,
     UploadScafImage,
     GetUserProfile,
-    Logout
+    Logout,
+    DeleteUser
 } = require('../controllers/user.controller/index');
 
 const {SupervisorAuth, ImageUploader, UserAuth} = require('../middleware/index')
@@ -19,10 +20,11 @@ const {SupervisorAuth, ImageUploader, UserAuth} = require('../middleware/index')
 router.get('/profile', UserAuth, GetUserProfile);
 router.get('/',  GetUsers);
 
-
+router.delete('/:id', SupervisorAuth, DeleteUser);
 router.post('/', SupervisorAuth, CreateUser);
 router.post('/logout',  Logout);
 router.post('/login', Login);
+router.put('/update/profile/:id', SupervisorAuth, UpdateProfile);// updates user profile by supervisor 
 router.put('/update/profile', UserAuth, UpdateProfile);
 router.put('/update/logbook', UserAuth, UpdateLogbook);
 router.put('/update/record', UserAuth, UpdateDailyActivities);
