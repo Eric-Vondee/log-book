@@ -7,6 +7,7 @@ const LogBookSchema = new Schema ({
     project: {type: String, maxlength: 300},
     department: {type: String},
     comments: {type: String},
+    image: {type: String}, 
     days: [{ 
         day: {type: String},
         contents:{type: String}
@@ -16,6 +17,7 @@ const LogBookSchema = new Schema ({
 const userSchema = new Schema({
     fullname: {type: String},
     email: {type: String},
+    profileImage: {type: String},
     gender: {type:String, enum:['male', 'female']},
     password: {type: String},
     startDate: {type: String},

@@ -9,6 +9,8 @@ const UploadScafImage = require('./uploadScafForm');
 const GetUserProfile = require('./getProfile');
 const Logout = require('./logout');
 const DeleteUser = require('./delete');
+const UploadProfileImage = require('./uploadProfileImage');
+const UploadActivitiesImage = require('./uploadActivitiesImage');
 
 const UserController = Object.freeze({
     CreateUser,
@@ -21,7 +23,9 @@ const UserController = Object.freeze({
     UploadScafImage,
     GetUserProfile,
     Logout,
-    DeleteUser
+    DeleteUser,
+    UploadProfileImage,
+    UploadActivitiesImage
 })
 
 module.exports = UserController

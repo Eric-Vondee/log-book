@@ -1,9 +1,11 @@
 const User = require('../../models/user.model');
+const Supervisor = require('../../models/supervisor.model');
 
 module.exports = async(req,res) => {
     try{
         const{id} = req.params
         const user = await User.findOne({_id: id })
+        const supervisor = await Supervisor.findOne({_id: req.decoded.id})
 
         if(!user){
             return res.status(404).send({
@@ -14,6 +16,7 @@ module.exports = async(req,res) => {
         }
         else{
             await user.remove()
+            await supervisor.updateOne({$pull: {students: id}})
             return res.status(200).send({
                 status: 'OK',
                 statusCode: 200,

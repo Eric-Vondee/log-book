@@ -12,7 +12,9 @@ const {
     UploadScafImage,
     GetUserProfile,
     Logout,
-    DeleteUser
+    DeleteUser,
+    UploadProfileImage,
+    UploadActivitiesImage
 } = require('../controllers/user.controller/index');
 
 const {SupervisorAuth, ImageUploader, UserAuth} = require('../middleware/index')
@@ -30,5 +32,7 @@ router.put('/update/logbook', UserAuth, UpdateLogbook);
 router.put('/update/record', UserAuth, UpdateDailyActivities);
 router.put('/update/status', SupervisorAuth, UpdateApprovalStatus);
 router.put('/upload/:id/image', UserAuth, ImageUploader('/scaf-form/:id'),  UploadScafImage)
+router.put('/upload/:id/profile-image', UserAuth, ImageUploader('/profile-image/:id'), UploadProfileImage);
+router.put('/upload/:id/activities-image', UserAuth, ImageUploader('/activities/:id'), UploadActivitiesImage);
 
 module.exports = router

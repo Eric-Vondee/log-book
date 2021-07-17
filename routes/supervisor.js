@@ -6,16 +6,17 @@ const {
     Login,
     UpdateProfile,
     GetSuperviorProfile,
-    Logout
+    Logout,
+    UploadProfileImage
 } = require('../controllers/supervisor.controller/index');
 
-const {SupervisorAuth} = require('../middleware/')
+const {SupervisorAuth, ImageUploader} = require('../middleware/')
 
 router.post('/logout', Logout);
 router.get('/profile', SupervisorAuth, GetSuperviorProfile);
 router.post('/', CreateSupervisor);
 router.post('/login', Login);
 router.put('/update/profile', SupervisorAuth, UpdateProfile);
-
+router.put('/upload/:id/profile-image', SupervisorAuth, ImageUploader('/profile-image/:id'), UploadProfileImage);
 
 module.exports = router
