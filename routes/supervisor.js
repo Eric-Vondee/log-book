@@ -17,6 +17,6 @@ router.get('/profile', SupervisorAuth, GetSuperviorProfile);
 router.post('/', CreateSupervisor);
 router.post('/login', Login);
 router.put('/update/profile', SupervisorAuth, UpdateProfile);
-router.put('/upload/:id/profile-image', SupervisorAuth, ImageUploader('/profile-image/:id'), UploadProfileImage);
+router.put('/upload/:id/profile-image', ImageUploader('/profile-image/:id'), UploadProfileImage);
 
 module.exports = router
