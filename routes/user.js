@@ -32,7 +32,7 @@ router.put('/update/logbook', UserAuth, UpdateLogbook);
 router.put('/update/record', UserAuth, UpdateDailyActivities);
 router.put('/update/status', SupervisorAuth, UpdateApprovalStatus);
 router.put('/upload/:id/image', UserAuth, ImageUploader('/scaf-form/:id'),  UploadScafImage)
-router.put('/upload/:id/profile-image', UserAuth, ImageUploader('/profile-image/:id'), UploadProfileImage);
-router.put('/upload/:id/activities-image', UserAuth, ImageUploader('/activities/:id'), UploadActivitiesImage);
+router.put('/upload/:id/profile-image',  ImageUploader('/profile-image/:id'), UploadProfileImage);
+router.put('/upload/:id/activities-image', ImageUploader('/activities/:id'), UploadActivitiesImage);
 
 module.exports = router
